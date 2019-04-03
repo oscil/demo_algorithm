@@ -11,7 +11,7 @@ def read_wav(wav_file):
     }
     w = wave.open(wav_file)
     params = dict(zip(['nchannels', 'sampwidth', 'framerate', 'nframes', 'comptype', 'compname'], w.getparams()))
-    print(params)
+    # print(params)
     content = w.readframes(params['nframes'])
     samples = np.frombuffer(content, dtype=types[params['sampwidth']])
     channels = np.zeros((params['nchannels'], int(samples.size/params['nchannels']) ))
